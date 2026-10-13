@@ -22,9 +22,7 @@ export class AuthService {
         catch (error) {
             throw error;
         }
-
     }
-
     async login({ email, password }) {
         try {
             return await this.account.createEmailSession(email, password);
@@ -34,16 +32,20 @@ export class AuthService {
         }
     }
 
-    async GetCurrentUser() {
-        try {
-            return await this.account.get();
-        }
-        catch (error) {
-            console.log("Appwrite Service:: GetCurrentUser::error", error);
+   async GetCurrentUser() {
+    try {
+        return await this.account.get();
+    } catch (error) {
+        if (error.code !== 401) {
+            console.log(
+                "Appwrite Service:: GetCurrentUser::error",
+                error
+            );
         }
         return null;
     }
-   
+}
+
 
     async Logout() {
         try {
