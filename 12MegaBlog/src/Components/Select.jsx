@@ -2,13 +2,13 @@ import React,{useId} from 'react'
 function Select({
     options,
     label,
-    className,
+    className = '',
     ...props
-},ref){
-    const id=useId()
-    return(
-         <div className='w-full'>
-        {label && <label htmlFor={id} className=''></label>}
+}, ref) {
+    const id = useId()
+    return (
+        <div className='w-full'>
+            {label && <label htmlFor={id} className=''>{label}</label>}
         <select
         {...props}
         id={id}
@@ -24,4 +24,5 @@ function Select({
     </div>
     )
 }
+//mahi is best
 export default React.forwardRef(Select);
