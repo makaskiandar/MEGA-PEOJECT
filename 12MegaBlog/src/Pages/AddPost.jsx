@@ -2,7 +2,7 @@ import react from 'react';
 import {Container,PostForm } from '../Components'
 function AddPost(){
     return(
-        <div classname="py-4">
+        <div classname="py-5">
             <Container>
                 <PostForm/>
             </Container>
