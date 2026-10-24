@@ -14,11 +14,6 @@ import Button from "./Button";
 import Input from "./input";
 import Select from "./Select";
 
-import AddPost from "../Pages/AddPost";
-import AllPosts from "../Pages/AllPosts";
-import EditPost from "../Pages/EditPost";
-import Post from "../Pages/Post";
-
 export {
     Header,
     Footer,
@@ -34,8 +29,4 @@ export {
     Button,
     Input,
     Select,
-    AddPost,
-    AllPosts,
-    EditPost,
-    Post
 };

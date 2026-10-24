@@ -40,7 +40,7 @@ export default function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+                const dbPost = await appwriteService.createPost({ ...data, userid: userData.$id });
 
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
@@ -49,16 +49,17 @@ export default function PostForm({ post }) {
         }
     };
 
-    const slugTransform = useCallback((value) => {
-        if (value && typeof value === "string")
-            return value
-                .trim()
-                .toLowerCase()
-                .replace(/[^a-zA-Z\d\s]+/g, "-")
-                .replace(/\s/g, "-");
+   const slugTransform = useCallback((value) => {
+    if (value && typeof value === "string") {
+        return value
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-zA-Z0-9\s-]/g, "")
+            .replace(/\s+/g, "-");
+    }
 
-        return "";
-    }, []);
+    return "";
+}, []);
 
     React.useEffect(() => {
         const subscription = watch((value, { name }) => {
